@@ -51,7 +51,8 @@ fetch("https://handlers.education.launchcode.org/static/planets.json").then(func
    .then(function (json) {
       let containerTag = document.getElementById("missionTarget");
       let missionDestination = [];
-      missionDestination.push(json[5]);
+      let randomNum = Number(Math.round(Math.random() * 5))
+      missionDestination.push(json[randomNum]);
 
       containerTag.innerHTML = `<h2>Mission Destination</h2>
        <ol>
