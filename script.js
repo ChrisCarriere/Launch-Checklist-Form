@@ -7,10 +7,14 @@ window.addEventListener("load", function () {
       let copilotName = document.querySelector("input[name=copilotName]");
       let fuelLevel = document.querySelector("input[name=fuelLevel]");
       let cargoMass = document.querySelector("input[name=cargoMass]");
+      var letters = /^[A-Za-z]+$/;
 
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          event.preventDefault();
          alert("All fields are required!");
+      } else if (!pilotName.value.match(letters) || !copilotName.value.match(letters)) {
+         event.preventDefault();
+         alert("Names should only contain letters.");
       } else if (isNaN(fuelLevel.value) === true || isNaN(cargoMass.value) === true) {
          event.preventDefault();
          alert("Fuel Level and Cargo Mass should be numbers.");
